@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@clerk/nextjs';
 import { supabase } from '../../lib/supabaseClient';
+import Image from 'next/image';
 
 export default function AdminCreatePage() {
   const [title, setTitle] = useState('');
@@ -153,7 +154,7 @@ export default function AdminCreatePage() {
         </form>
 
         <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center w-full">
-          <img
+          <Image
             src="/admin.svg"
             alt="Admin Illustration"
             className="w-full max-w-none drop-shadow-xl"
