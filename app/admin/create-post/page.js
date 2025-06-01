@@ -22,16 +22,17 @@ export default function AdminCreatePage() {
     return user.publicMetadata?.role === 'admin';
   };
 
-  useEffect(() => {
-    if (isLoaded) {
-      if (!user || !isAdmin()) {
-        alert('Access denied. Admins only.');
-        router.push('/admin/dashboard');
-      } else {
-        setLoading(false);
-      }
+ useEffect(() => {
+  if (isLoaded) {
+    if (!user || !isAdmin()) {
+      alert('Access denied. Admins only.');
+      router.push('/admin/dashboard');
+    } else {
+      setLoading(false);
     }
-  }, [user, isLoaded, router]);
+  }
+}, [user, isLoaded, router, isAdmin]);
+
 
   const uploadImage = async (file) => {
     if (!file) return null;
